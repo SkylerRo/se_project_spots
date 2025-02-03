@@ -1,5 +1,6 @@
 .footer {
-    border-top: 1px solid #212121;
+    border-top: 1px solid #212121 ;
+    opacity: 40%;
     max-width: 413x;
     display: flex;
     justify-content: center;
@@ -11,6 +12,14 @@
     padding-top: 60px;
 
     
+    }
+
+    @media screen and (max-width: 627px) {
+        .footer {
+            border-top: 1px solid #212121;
+            opacity: 40%;
+            max-width: 288px;
+        }
     }
 
     
