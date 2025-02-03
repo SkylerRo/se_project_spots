@@ -13,6 +13,14 @@ border-radius: 8px;
     justify-content: space-between;
 }
 
+.card__title {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: normal;
+}
+
+
 
 .card__like-button {
     background-image: url(../images/heart.svg);
