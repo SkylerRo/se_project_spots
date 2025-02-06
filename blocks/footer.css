@@ -1,6 +1,5 @@
 .footer {
-    border-top: 1px solid #212121 ;
-    opacity: 40%;
+    border-top: 1px solid #21212166 ;
     max-width: 413x;
     display: flex;
     justify-content: center;
@@ -8,18 +7,12 @@
 
 
 .footer__copyright {
+    color: #212121b2;
     margin: 0 auto;
     padding-top: 60px;
+    padding-bottom: 60px;
 
     
-    }
-
-    @media screen and (max-width: 627px) {
-        .footer {
-            border-top: 1px solid #212121;
-            opacity: 40%;
-            max-width: 288px;
-        }
     }
 
     

@@ -1,21 +1,30 @@
 .cards {
 padding-top: 20px;
+padding-bottom: 40px;
 }
 
 .cards__list {
     list-style-type: none;
+    justify-content: center;
     padding: 0;
     margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, 413px); /* doesnt work */
-    gap: 10px;
+    gap: 40px 20px;
 
     
 }
 
 @media screen and (max-width: 627px) {
-.cards__list {
+
+.cards {
+    padding-bottom: 20px;
+}
+
+
+    .cards__list {
     grid-template-columns: repeat(auto-fit, 288px);
     justify-content: center;
+    row-gap: 20px
 }
 }
