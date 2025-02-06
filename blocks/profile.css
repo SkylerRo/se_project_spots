@@ -30,6 +30,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    max-width: 420px;
 }
 
 .profile__description {
@@ -62,7 +63,7 @@
 }
 
 .profile__edit-btn:hover {
-
+opacity: 1;
 }
 
 
@@ -79,7 +80,7 @@
 }
 
 .profile__add-btn:hover{
-
+opacity: 0.8;
 }
 
 
@@ -122,6 +123,7 @@
 
     .profile__add-btn{
         margin: 0;
+        width: 100%;
          max-width: 288px;
          align-self: center;
 

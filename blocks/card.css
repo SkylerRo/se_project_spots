@@ -24,7 +24,7 @@ border-radius: 8px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 413px;
+    max-width: 350px;
 }
 
 
@@ -44,7 +44,7 @@ border-radius: 8px;
 }
 
 .card__like-button:hover {
-
+opacity: 1;
 }
 
 
@@ -56,6 +56,10 @@ border-radius: 8px;
  
 .card__title {
     max-width: 250px;
+    font-size: 16px;
 }
-
+.card__like-button {
+    width: 20px;
+    height: 18px;
+}
 }
