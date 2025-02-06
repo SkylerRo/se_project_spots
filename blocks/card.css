@@ -17,6 +17,7 @@ border-radius: 8px;
 }
 
 .card__title {
+    margin: 0;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-size: 20px;
     line-height: 24px;
