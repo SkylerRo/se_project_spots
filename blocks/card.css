@@ -1,4 +1,6 @@
-
+.card {
+    position: relative;
+}
 
 .card__image {
 height: 413px;
@@ -48,7 +50,33 @@ border-radius: 8px;
 opacity: 1;
 }
 
+.card__like-button_liked {
+background-image: url("../images/like-icon-liked.svg");
+opacity: 1;
+}
 
+.card__like-button_liked:hover {
+background-image: url("../images/like-icon-liked-hover.svg");
+}
+
+.card__delete-btn {
+   background-image: url(../images/spots-avatar-and-card-images/grey-delete-circle.png);
+   border: none;
+    position: absolute;
+    border-radius: 80%;
+    top: 10px;
+    left: 371px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+
+
+}
+
+.card__delete-btn:hover {
+background-image: url(../images/spots-avatar-and-card-images/delete-click-circle.png);
+
+}
 
 @media screen and (max-width: 627px) {
 .card__image {
@@ -63,4 +91,15 @@ opacity: 1;
     width: 20px;
     height: 18px;
 }
+
+
+.card__delete-btn {
+    position: absolute;
+    top: 10px;
+    left: 246px;
+ }
+
 }
+
+
+
