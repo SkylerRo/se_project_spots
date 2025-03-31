@@ -1,105 +1,94 @@
 .card {
-    position: relative;
+  position: relative;
 }
 
 .card__image {
-height: 413px;
-width: 100%;
-object-fit: cover;
-display: block;
-border-radius: 8px;
+  height: 413px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
 }
 
 .card__content {
-    margin-top: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card__title {
-    margin: 0;
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: 500;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 350px;
+  margin: 0;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 350px;
 }
 
-
-
 .card__like-button {
-    background-image: url(../images/heart.svg);
-    width: 23px;
-    height: 20px;
-    border: none;
-    background-color: transparent;
-    opacity: 40%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    cursor: pointer;
-    
+  background-image: url(../images/heart.svg);
+  width: 23px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  opacity: 40%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
 }
 
 .card__like-button:hover {
-opacity: 1;
+  opacity: 1;
 }
 
 .card__like-button_liked {
-background-image: url("../images/like-icon-liked.svg");
-opacity: 1;
+  background-image: url("../images/spots-avatar-and-card-images/red-heart.svg");
+  opacity: 1;
 }
 
 .card__like-button_liked:hover {
-background-image: url("../images/like-icon-liked-hover.svg");
+  background-image: url("../images/like-icon-liked-hover.svg");
 }
 
 .card__delete-btn {
-   background-image: url(../images/spots-avatar-and-card-images/grey-delete-circle.png);
-   border: none;
-    position: absolute;
-    border-radius: 80%;
-    top: 10px;
-    left: 371px;
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-
-
+  background-image: url(../images/graycircle.svg);
+  border: none;
+  position: absolute;
+  border-radius: 80%;
+  top: 10px;
+  left: 371px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .card__delete-btn:hover {
-background-image: url(../images/spots-avatar-and-card-images/delete-click-circle.png);
-
+  background-image: url(../images/pink-circle.svg);
 }
 
 @media screen and (max-width: 627px) {
-.card__image {
+  .card__image {
     height: 288px;
-}
- 
-.card__title {
+  }
+
+  .card__title {
     max-width: 250px;
     font-size: 16px;
-}
-.card__like-button {
+  }
+  .card__like-button {
     width: 20px;
     height: 18px;
-}
+  }
 
-
-.card__delete-btn {
+  .card__delete-btn {
     position: absolute;
     top: 10px;
     left: 246px;
- }
-
+  }
 }
-
-
-
