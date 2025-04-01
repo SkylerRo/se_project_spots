@@ -100,9 +100,8 @@
 }
 
 .modal__input_type_error {
-border: 1px solid rgba(255, 0, 0, 0.6)
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
-
 
 .modal__input:hover {
   border-color: #212121;
@@ -137,14 +136,13 @@ border: 1px solid rgba(255, 0, 0, 0.6)
   text-align: center;
 }
 
-
 .modal__error {
   color: red;
- 
 }
 
-
-
+.modal__button_disabled{
+ opacity: 50%;
+};
 
 @media screen and (max-width: 627px) {
   .modal {

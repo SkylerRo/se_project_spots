@@ -56,6 +56,7 @@ const cardsList = document.querySelector(".cards__list");
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
+const cardSubmitBtn = cardModal.querySelector(".modal__button")
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardlinkInput = cardModal.querySelector("#add-card-link-input");
@@ -122,7 +123,8 @@ function handleAddCardSubmit(evt) {
   const inputValues = { name: cardNameInput.value, link: cardlinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  evt.target.reset()
+  evt.target.reset();
+  disableButton(cardSubmitBtn);
   closeModal(cardModal);
   
 }
@@ -131,6 +133,7 @@ function handleAddCardSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescrition.textContent;
+  resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput ], settings);
   openModal(editModal);
 });
 
