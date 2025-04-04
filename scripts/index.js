@@ -41,7 +41,6 @@ const editFormElement = editModal.querySelector(".modal__form");
 
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 
-
 const cardModalBtn = document.querySelector(".profile__add-btn");
 
 const editModalNameInput = editModal.querySelector("#profile-name-input");
@@ -56,7 +55,7 @@ const cardsList = document.querySelector(".cards__list");
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
-const cardSubmitBtn = cardModal.querySelector(".modal__button")
+const cardSubmitBtn = cardModal.querySelector(".modal__button");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardlinkInput = cardModal.querySelector("#add-card-link-input");
@@ -105,10 +104,12 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+
 }
 
 function handleEditFormSubmit(e) {
@@ -124,16 +125,19 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disableButton(cardSubmitBtn);
+  disableButton(cardSubmitBtn, settings);
   closeModal(cardModal);
-  
 }
 
 // handler for edit profile modal
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescrition.textContent;
-  resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput ], settings);
+  resetValidation(
+    editFormElement,
+    [editModalNameInput, editModalDescriptionInput],
+    settings
+  );
   openModal(editModal);
 });
 
@@ -160,4 +164,19 @@ cardForm.addEventListener("submit", handleAddCardSubmit);
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);
+});
+
+document.addEventListener("mousedown", (evt) => {
+  // click outside
+  if (evt.target.classList.contains("modal_opened")) {
+    closeModal(evt.target);
+  }
+});
+
+document.addEventListener("keydown", (evt) => {
+  // push escape key
+  if (evt.key === "Escape") {
+    const activeModal = document.querySelector(".modal_opened")
+    closeModal(activeModal);
+  }
 });

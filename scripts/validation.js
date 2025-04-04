@@ -29,8 +29,6 @@ const checkInputValidity = (formEL, inputEl, config) => {
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((input) => {
-    console.log(input);
-    console.log(input.validity.valid);
     return !input.validity.valid;
   });
 };
@@ -38,20 +36,17 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
     disableButton(buttonEl, config);
-    
-    
   } else {
     buttonEl.disabled = false;
     buttonEl.classList.remove(config.inactiveButtonClass);
-    
   }
 };
 
 const disableButton = (buttonEl, config) => {
-    buttonEl.disabled = true;
-    buttonEl.classList.add(config.inactiveButtonClass);
-  
+  buttonEl.disabled = true;
+  buttonEl.classList.add(config.inactiveButtonClass);
 };
+
 
 const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
@@ -75,12 +70,9 @@ const setEventListeners = (formEL, config) => {
 
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
-  console.log(formList);
   formList.forEach((formEL) => {
     setEventListeners(formEL, config);
   });
 };
 
 enableValidation(settings);
-
-
