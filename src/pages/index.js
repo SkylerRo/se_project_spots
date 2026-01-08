@@ -56,6 +56,7 @@ api
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
     });
+    
   })
   .catch(console.error);
 
@@ -138,8 +139,16 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
-function handleEditFormSubmit(e) {
+
+function handleEditProfileSubmit(e) {
   e.preventDefault();
+  api.editUserInfo({
+    name: editModalNameInput.value,
+    about: editModalDescriptionInput.value
+  }).then((data) =>
+  { })
+    .catch (console.error);
+
   profileName.textContent = editModalNameInput.value;
   profileDescrition.textContent = editModalDescriptionInput.value;
   closeModal(editModal);
@@ -184,7 +193,7 @@ previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
-editFormElement.addEventListener("submit", handleEditFormSubmit);
+editFormElement.addEventListener("submit", handleEditProfileSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
 document.addEventListener("mousedown", (evt) => {
