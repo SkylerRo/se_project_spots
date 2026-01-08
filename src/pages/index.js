@@ -1,5 +1,10 @@
-import { enableValidation, ValidationConfig, disableButton, resetValidation } from "./validation.js";
-import Api from "./Api.js";
+import {
+  enableValidation,
+  ValidationConfig,
+  disableButton,
+  resetValidation,
+} from "../scripts/validation.js";
+import Api from "../utils/Api.js";
 
 const initialCards = [
   {
@@ -45,7 +50,10 @@ const api = new Api({
 });
 
 api.getInitialCards().then((cards) => {
-  console.log(cards);
+  cards.forEach((item) => {
+    const cardElement = getCardElement(item);
+    cardsList.append(cardElement);
+  });
 });
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
@@ -175,11 +183,6 @@ previewModalCloseButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
-
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardsList.prepend(cardElement);
-});
 
 document.addEventListener("mousedown", (evt) => {
   // click outside
