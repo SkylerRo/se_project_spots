@@ -31,6 +31,21 @@ const initialCards = [
   },
 ];
 
+// index.js
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "3515e1ab-2299-4d17-8ccd-400d73cf2a10",
+    "Content-Type": "application/json"
+  }
+});
+
+api.getInitialCards()
+  .then((cards) => {
+    console.log(cards);
+  });
+  
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescrition = document.querySelector(".profile__description");
