@@ -1,3 +1,6 @@
+import { enableValidation, ValidationConfig, disableButton, resetValidation } from "./validation.js";
+import Api from "./Api.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -37,15 +40,14 @@ const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "3515e1ab-2299-4d17-8ccd-400d73cf2a10",
-    "Content-Type": "application/json"
-  }
+    "Content-Type": "application/json",
+  },
 });
 
-api.getInitialCards()
-  .then((cards) => {
-    console.log(cards);
-  });
-  
+api.getInitialCards().then((cards) => {
+  console.log(cards);
+});
+
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescrition = document.querySelector(".profile__description");
@@ -119,12 +121,10 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-
 }
 
 function handleEditFormSubmit(e) {
@@ -140,7 +140,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disableButton(cardSubmitBtn, settings);
+  disableButton(cardSubmitBtn, ValidationConfig);
   closeModal(cardModal);
 }
 
@@ -151,7 +151,7 @@ profileEditButton.addEventListener("click", () => {
   resetValidation(
     editFormElement,
     [editModalNameInput, editModalDescriptionInput],
-    settings
+    ValidationConfig
   );
   openModal(editModal);
 });
@@ -191,7 +191,7 @@ document.addEventListener("mousedown", (evt) => {
 document.addEventListener("keydown", (evt) => {
   // push escape key
   if (evt.key === "Escape") {
-    const activeModal = document.querySelector(".modal_opened")
+    const activeModal = document.querySelector(".modal_opened");
     closeModal(activeModal);
   }
 });
