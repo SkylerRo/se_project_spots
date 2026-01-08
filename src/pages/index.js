@@ -54,7 +54,7 @@ api.getInitialCards().then((cards) => {
     const cardElement = getCardElement(item);
     cardsList.append(cardElement);
   });
-});
+}).catch(console.error);
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
