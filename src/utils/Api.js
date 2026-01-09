@@ -63,6 +63,22 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  deleteCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json()
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  //TODO: add methods for adding a card
+
+  // TODO: add methods for liking and disliking a card
 }
 
 export default Api;

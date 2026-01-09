@@ -30,7 +30,21 @@
   padding-right: 32px;
   padding-bottom: 18px;
   padding-left: 32px;
+  border-width: 1px;
   gap: 8px;
+}
+
+.modal__cancel-btn{
+  width: 156;
+  height: 52;
+  opacity: 1;
+  border-radius: 8px;
+  padding-top: 18px;
+  padding-right: 32px;
+  padding-bottom: 18px;
+  padding-left: 32px;
+  gap: 8px;
+  border-width: 1px;
 }
 
 .modal__container {
