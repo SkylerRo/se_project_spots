@@ -92,6 +92,15 @@ const previewModalImageEL = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseButton = previewModal.querySelector(".modal__close-btn");
 
+// Avatar form elements
+const editAvatarModal = document.querySelector("#edit-avatar-modal");
+const editAvatarModalbtn = document.querySelector(".profile__avatar-btn");
+const editAvatarForm = editAvatarModal.querySelector(".modal__form");
+const editAvatarSubmitBtn = editAvatarForm.querySelector(".modal__submit-btn"); 
+const closeAvatarModalBtn = editAvatarModal.querySelector(".modal__close-btn");
+//const editAvatarFromInput = editAvatarModal.querySelector("profile-avatar-input")
+const editAvatarFromInput = document.getElementById("profile-avatar-input");
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -163,6 +172,18 @@ function handleAddCardSubmit(evt) {
   closeModal(cardModal);
 }
 
+function handleAvatarEditSubmit(evt) {
+  evt.preventDefault();
+  api
+    .editUserAvatar({ avatar: editAvatarFromInput.value })
+    .then((data) => {
+      document.querySelector(".profile__avatar").src
+       = data.avatar;
+    })
+    .catch(console.error);
+}
+
+
 // handler for edit profile modal
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
@@ -191,6 +212,19 @@ cardModalCloseBtn.addEventListener("click", () => {
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
+
+editAvatarModalbtn.addEventListener("click", () => {
+  openModal(editAvatarModal);
+});
+
+closeAvatarModalBtn.addEventListener("click", () => {
+  closeModal(editAvatarModal);
+});
+
+editAvatarForm.addEventListener("submit", handleAvatarEditSubmit);
+ 
+  
+
 
 editFormElement.addEventListener("submit", handleEditProfileSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);

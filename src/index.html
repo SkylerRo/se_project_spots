@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script defer type="module" src="./pages/index.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Spots" />
@@ -159,6 +160,28 @@
       </li>
     </template>
 
-    <script type="module" src="./pages/index.js"></script>
+    <div class="modal" id="edit-avatar-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn">
+            <img src="./images/x-button.svg" alt="close-button" />
+          </button>
+          <h2 class="modal__title">Edit Avatar</h2>
+          <form class="modal__form" id="edit-avatar-form">
+            <label for="profile-avatar-input" class="modal__label">
+              Profile Picture
+              <input
+                id="profile-avatar-input"
+                class="modal__input"
+                placeholder="Paste a link to your image"
+                type="url"
+                name="avatar"
+                required
+              />
+              <span id="profile-avatar-input-error" class="modal__error"></span>
+            </label>
+            <button type="submit" class="modal__submit-btn modal__button" >Save</button>
+          </form>
+        </div>
+      </div>
   </body>
 </html>
