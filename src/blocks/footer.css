@@ -1,0 +1,13 @@
+.footer {
+  border-top: 1px solid #21212166;
+  max-width: 413x;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__copyright {
+  color: #212121b2;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
