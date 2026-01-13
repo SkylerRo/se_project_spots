@@ -73,6 +73,8 @@ const editFormElement = editModal.querySelector(".modal__form");
 
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 
+const editModalSubmitBtn = editModal.querySelector(".modal__submit-btn");
+
 const cardModalBtn = document.querySelector(".profile__add-btn");
 
 const editModalNameInput = editModal.querySelector("#profile-name-input");
@@ -100,7 +102,7 @@ const previewModalCloseButton = previewModal.querySelector(".modal__close-btn");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 const deleteModalCloseBtn = deleteModal.querySelector(".modal__close-btn");
-const deleteModalConfirmBtn = deleteModal.querySelector(".modal__submit-btn");
+const deleteModalConfirmBtn = deleteModal.querySelector(".modal__button-delete");
 const deleteModalCancelBtn = deleteModal.querySelector(".modal__cancel-btn");
 
 // Avatar form elements
@@ -176,6 +178,7 @@ function closeModal(modal) {
 
 function handleEditProfileSubmit(e) {
   e.preventDefault();
+  editModalSubmitBtn.textContent = "Saving...";
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -184,14 +187,19 @@ function handleEditProfileSubmit(e) {
     .then((data) => {
       profileName.textContent = data.name;
       profileDescrition.textContent = data.about;
+      editModalSubmitBtn.textContent = "Save";
       closeModal(editModal);
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error(error);
+      editModalSubmitBtn.textContent = "Save";
+    });
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardlinkInput.value };
+  cardSubmitBtn.textContent = "Saving...";
   api
     .addCard(inputValues)
     .then((data) => {
@@ -199,10 +207,12 @@ function handleAddCardSubmit(evt) {
       cardsList.prepend(cardElement);
       evt.target.reset();
       disableButton(cardSubmitBtn, ValidationConfig);
+      cardSubmitBtn.textContent = "Save";
       closeModal(cardModal);
     })
     .catch((error) => {
       console.error("Error adding card:", error);
+      cardSubmitBtn.textContent = "Save";
     });
 }
 
@@ -229,13 +239,18 @@ function handleDeleteCard(cardElement, data) {
 
 function handelDeleteSubmit(evt) {
   evt.preventDefault();
+  deleteModalConfirmBtn.textContent = "Deleting...";
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
+      deleteModalConfirmBtn.textContent = "Delete";
+      closeModal(deleteModal);
     })
-    .catch(console.error);
-  closeModal(deleteModal);
+    .catch((error) => {
+      console.error(error);
+      deleteModalConfirmBtn.textContent = "Delete";
+    });
 }
 
 // handler for edit profile modal
