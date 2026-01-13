@@ -51,7 +51,11 @@ const api = new Api({
 
 api
   .getAppInfo()
-  .then(([cards]) => {
+  .then(([cards, userInfo]) => {
+    profileName.textContent = userInfo.name;
+    profileDescrition.textContent = userInfo.about;
+    document.querySelector(".profile__avatar").src = userInfo.avatar;
+
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
@@ -174,11 +178,18 @@ function handleEditProfileSubmit(e) {
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardlinkInput.value };
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
-  evt.target.reset();
-  disableButton(cardSubmitBtn, ValidationConfig);
-  closeModal(cardModal);
+  api
+    .addCard(inputValues)
+    .then((data) => {
+      const cardElement = getCardElement(data);
+      cardsList.prepend(cardElement);
+      evt.target.reset();
+      disableButton(cardSubmitBtn, ValidationConfig);
+      closeModal(cardModal);
+    })
+    .catch((error) => {
+      console.error("Error adding card:", error);
+    });
 }
 
 function handleAvatarEditSubmit(evt) {
