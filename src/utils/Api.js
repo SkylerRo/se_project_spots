@@ -92,6 +92,17 @@ class Api {
     });
   }
   // TODO: add methods for liking and disliking a card
+  updateLikedStatus({ isLiked, id }) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: isLiked ? "PUT" : "DELETE",
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json()
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
 }
 
 export default Api;
