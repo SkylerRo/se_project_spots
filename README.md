@@ -23,6 +23,6 @@ This project is made so all the elements are displayed correctly on popular scre
 ## Deployment
 
 This webpage is deployed to Github
-- [Deployment Link](https://skylerro.github.io/spots/) 
+- [Deployment Link](https://skylerro.github.io/se_project_spots/) 
 
 -[Video Link](https://drive.google.com/file/d/1O5kPDQ5pyVpOY9Qis_YkB8x6DcvzLeLL/view?usp=sharing)
