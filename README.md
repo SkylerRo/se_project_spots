@@ -1,3 +1,10 @@
+ ## Project Pitch Video
+ 
+ Check out [this video](https://drive.google.com/file/d/18MYbQIy7OsSd5uU-te2eJgJf3eh1L7DO/view?usp=sharing), where I describe my 
+ project and some challenges I faced while building it.
+https://drive.google.com/file/d/18MYbQIy7OsSd5uU-te2eJgJf3eh1L7DO/view?usp=sharing
+
+
 # Project 3: Spots
 An image sharing site
 
