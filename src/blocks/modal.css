@@ -32,6 +32,7 @@
   padding-left: 32px;
   border-width: 1px;
   gap: 8px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .modal__cancel-btn{
@@ -45,6 +46,7 @@
   padding-left: 32px;
   gap: 8px;
   border-width: 1px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .modal__container {
@@ -118,10 +120,15 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 #delete-modal .modal__title {
   text-align: center;
+}
+
+#edit-avatar-modal .modal__title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 #delete-modal .modal__form {
@@ -137,6 +144,7 @@
   margin-bottom: 32px;
   color: #212121;
   opacity: 70%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .modal__input {
@@ -146,6 +154,7 @@
   border-radius: 8px;
   border: 1px solid rgba(33, 33, 33, 0.4);
   cursor: pointer;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .modal__input_type_error {
@@ -191,7 +200,21 @@
 
 .modal__button_disabled {
  opacity: 50%;
-};
+}
+
+.modal__submit-btn_image {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal__submit-btn_image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 @media screen and (max-width: 627px) {
   .modal {
@@ -225,6 +248,15 @@
   }
 
   .modal__submit-btn {
+    width: 100%;
+  }
+
+  .modal__submit-btn_text {
+    display: none;
+  }
+
+  .modal__submit-btn_image {
+    display: block;
     width: 100%;
   }
 }
