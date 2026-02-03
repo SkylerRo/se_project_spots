@@ -201,6 +201,7 @@ function closeModal(modal) {
 
 function handleEditProfileSubmit(e) {
   e.preventDefault();
+  const startTime = Date.now();
   editModalSubmitBtn.textContent = "Saving...";
   api
     .editUserInfo({
@@ -216,12 +217,17 @@ function handleEditProfileSubmit(e) {
       console.error(error);
     })
     .finally(() => {
-      editModalSubmitBtn.textContent = "Save";
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1000 - elapsedTime);
+      setTimeout(() => {
+        editModalSubmitBtn.textContent = "Save";
+      }, remainingTime);
     });
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  const startTime = Date.now();
   const inputValues = { name: cardNameInput.value, link: cardlinkInput.value };
   cardSubmitBtn.textContent = "Saving...";
   api
@@ -237,19 +243,32 @@ function handleAddCardSubmit(evt) {
       console.error("Error adding card:", error);
     })
     .finally(() => {
-      cardSubmitBtn.textContent = "Save";
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1000 - elapsedTime);
+      setTimeout(() => {
+        cardSubmitBtn.textContent = "Save";
+      }, remainingTime);
     });
 }
 
 function handleAvatarEditSubmit(evt) {
   evt.preventDefault();
+  const startTime = Date.now();
+  editAvatarSubmitBtn.textContent = "Saving...";
   api
     .editUserAvatar({ avatar: editAvatarFromInput.value })
     .then((data) => {
       document.querySelector(".profile__avatar").src = data.avatar;
       closeModal(editAvatarModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1000 - elapsedTime);
+      setTimeout(() => {
+        editAvatarSubmitBtn.textContent = "Save";
+      }, remainingTime);
+    });
 }
 // handler for delete modal
 deleteModalCloseBtn.addEventListener("click", () => {
@@ -268,6 +287,7 @@ function handleDeleteCard(cardElement, data) {
 
 function handelDeleteSubmit(evt) {
   evt.preventDefault();
+  const startTime = Date.now();
   deleteModalConfirmBtn.textContent = "Deleting...";
   api
     .deleteCard(selectedCardId)
@@ -279,7 +299,11 @@ function handelDeleteSubmit(evt) {
       console.error(error);
     })
     .finally(() => {
-      deleteModalConfirmBtn.textContent = "Delete";
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1000 - elapsedTime);
+      setTimeout(() => {
+        deleteModalConfirmBtn.textContent = "Delete";
+      }, remainingTime);
     });
 }
 
