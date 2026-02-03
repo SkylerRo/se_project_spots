@@ -22,7 +22,7 @@
 
 .profile__avatar-container:hover .profile__avatar-btn {
   visibility: visible;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
     
 }
 
