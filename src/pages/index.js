@@ -239,7 +239,6 @@ function handleAddCardSubmit(evt) {
       cardsList.prepend(cardElement);
       evt.target.reset();
       disableButton(cardSubmitBtn, ValidationConfig);
-      closeModal(cardModal);
     })
     .catch((error) => {
       console.error("Error adding card:", error);
