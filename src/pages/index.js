@@ -51,12 +51,17 @@ const api = new Api({
   },
 });
 
+const profileEditButton = document.querySelector(".profile__edit-btn");
+const profileName = document.querySelector(".profile__name");
+const profileDescrition = document.querySelector(".profile__description");
+const profileAvatar = document.querySelector(".profile__avatar");
+
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
     profileName.textContent = userInfo.name;
     profileDescrition.textContent = userInfo.about;
-    document.querySelector(".profile__avatar").src = userInfo.avatar;
+    profileAvatar.src = userInfo.avatar;
 
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
@@ -64,10 +69,6 @@ api
     });
   })
   .catch(console.error);
-
-const profileEditButton = document.querySelector(".profile__edit-btn");
-const profileName = document.querySelector(".profile__name");
-const profileDescrition = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
 
@@ -211,6 +212,7 @@ function handleEditProfileSubmit(e) {
     .then((data) => {
       profileName.textContent = data.name;
       profileDescrition.textContent = data.about;
+      e.target.reset();
       closeModal(editModal);
     })
     .catch((error) => {
@@ -258,7 +260,9 @@ function handleAvatarEditSubmit(evt) {
   api
     .editUserAvatar({ avatar: editAvatarFromInput.value })
     .then((data) => {
-      document.querySelector(".profile__avatar").src = data.avatar;
+      profileAvatar.src = data.avatar;
+      evt.target.reset();
+      disableButton(editAvatarSubmitBtn, ValidationConfig);
       closeModal(editAvatarModal);
     })
     .catch(console.error)
